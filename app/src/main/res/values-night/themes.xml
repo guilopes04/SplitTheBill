@@ -1,16 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.SplitTheBill" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        <!-- Cor primária do aplicativo (verde) -->
+        <item name="colorPrimary">@color/verde</item>
+        <item name="colorPrimaryVariant">@color/verde_escuro</item>
+        <item name="colorOnPrimary">@color/branco</item>
+        <!-- Cor secundária do aplicativo (preto) -->
+        <item name="colorSecondary">@color/preto</item>
+        <item name="colorSecondaryVariant">@color/preto_escuro</item>
+        <item name="colorOnSecondary">@color/branco</item>
+        <!-- Cor da barra de status -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Personalize seu tema aqui. -->
     </style>
 </resources>
