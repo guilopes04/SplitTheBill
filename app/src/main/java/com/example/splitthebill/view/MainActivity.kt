@@ -29,15 +29,11 @@ class MainActivity : AppCompatActivity() {
             }}
 
         amb.dividirContaBt.setOnClickListener {
-            val valor = (amb.valorTotalEt.text.toString()).toDouble()
-            val quantidade = (amb.quantidadePessoasEt.text.toString()).toInt()
-            val valorPessoa = (valor/quantidade).toString()
+            val totalValue = amb.valorTotalEt.text.toString()
+            val numberOfPeople = amb.quantidadePessoasEt.text.toString()
+            val valuePerPerson = (totalValue.toDouble()/numberOfPeople.toInt()).toString()
 
-            val bill = Bill(
-                valorTotal = amb.valorTotalEt.text.toString(),
-                quantidadePessoas = amb.quantidadePessoasEt.text.toString(),
-                valorPorPessoa = valorPessoa
-            )
+            val bill = Bill(totalValue,numberOfPeople,valuePerPerson)
 
             val peopleIntent = Intent(this@MainActivity, ListParticipants::class.java)
             peopleIntent.putExtra(ConstantTypes.BILL_PEOPLE, bill)
