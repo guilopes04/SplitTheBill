@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Bill(
-    var valorTotal: String,
-    var quantidadePessoas: String,
-    var valorPorPessoa: String
+    var totalValue: String,
+    var numberOfPeople: String,
+    var valuePerPerson: String
 ): Parcelable
