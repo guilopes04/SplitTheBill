@@ -44,7 +44,7 @@ class PersonAdapter (
 
             with (personComponentView.tag as PeopleComponentHolder) {
                 nameTv.text = contact.name
-                valorTv.text = contact.valorPago
+                valorTv.text = contact.valorAPagarAutomatico
             }
 
             return personComponentView

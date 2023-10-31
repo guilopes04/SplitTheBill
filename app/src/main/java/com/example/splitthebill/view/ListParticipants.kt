@@ -130,8 +130,8 @@ class ListParticipants : AppCompatActivity() {
             R.id.editPersonMi -> {
                 val person = personList[position]
                 val personIntent = Intent(this, PersonActivity::class.java)
-                personIntent.putExtra(Constant.EXTRA_PERSON, person)
-                personIntent.putExtra(Constant.VIEW_PERSON, false)
+                personIntent.putExtra(ConstantTypes.EXTRA_PERSON, person)
+                personIntent.putExtra(ConstantTypes.VIEW_PERSON, false)
                 carl.launch(personIntent)
                 true
             }
