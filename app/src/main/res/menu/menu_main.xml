@@ -3,15 +3,11 @@
 
     <item
         android:id="@+id/addPersonMi"
-        android:icon="@drawable/ic_add"
         android:title="Add person"
-        app:showAsAction="ifRoom"
-        />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/changeBillMi"
-        android:icon="@drawable/ic_bill"
         android:title="Change the Bill"
-        app:showAsAction="ifRoom"
-        />
+        app:showAsAction="ifRoom" />
 </menu>
