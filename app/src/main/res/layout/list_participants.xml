@@ -1,52 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/branco"
-    tools:context=".view.ListParticipants">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lista de Participantes"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/branco" />
-
-    <ListView
-        android:id="@+id/participantListView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@color/preto"
-        android:dividerHeight="1dp"
-        android:background="@color/branco"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar Participante"
-        android:id="@+id/addParticipantButton"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:background="@color/verde"
-        android:textColor="@color/branco" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Finalizar Divisão"
-        android:id="@+id/finishDivisionButton"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:background="@color/preto"
-        android:textColor="@color/branco" />
-
-</LinearLayout>
+    android:id="@+id/peopleLv"
+    tools:context=".view.ListParticipants"/>
