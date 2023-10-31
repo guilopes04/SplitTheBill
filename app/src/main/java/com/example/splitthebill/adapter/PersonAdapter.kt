@@ -1,4 +1,4 @@
-package com.ifsp.giovanna.splitthebill.adapter
+package com.example.splitthebill.adapter
 
 import android.content.Context
 import android.os.Parcel
@@ -8,18 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.ifsp.giovanna.splitthebill.R
-import com.ifsp.giovanna.splitthebill.databinding.CellPersonBinding
-import com.ifsp.giovanna.splitthebill.model.Person
+import com.example.splitthebill.R
+import com.example.splitthebill.databinding.PersonComponentBinding
+import com.example.splitthebill.model.Person
 
 class PersonAdapter (
         context: Context,
         private val personList:
         MutableList<Person>
-        ): ArrayAdapter<Person>(context, R.layout.cell_person, personList) {
+        ): ArrayAdapter<Person>(context, R.layout.person_component, personList) {
 
-        private data class CellPeopleHolder(val nameTv: TextView, val valorTv: TextView)
-        private lateinit var cpb: CellPersonBinding
+        private data class PeopleComponentHolder(val nameTv: TextView, val valorTv: TextView)
+        private lateinit var pcb: PersonComponentBinding
 
         constructor(parcel: Parcel) : this(
             TODO("context"),
@@ -28,35 +28,26 @@ class PersonAdapter (
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val contact = personList[position]
-            var personCellView = convertView
+            var personComponentView = convertView
 
-            if(personCellView == null) {
-                // inflo uma nova celula
-                cpb = CellPersonBinding.inflate(
+            if(personComponentView == null) {
+                pcb = PersonComponentBinding.inflate(
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater,
                     parent,
                     false
                 )
 
-                personCellView = cpb.root
-                val cellPeopleHolder = CellPeopleHolder(cpb.nameTv, cpb.valorpagoTv)
-                personCellView.tag = cellPeopleHolder
+                personComponentView = pcb.root
+                val peopleComponentHolder = PeopleComponentHolder(pcb.nameTv, pcb.valorpagoTv)
+                personComponentView.tag = peopleComponentHolder
             }
 
-            with (personCellView.tag as CellPeopleHolder) {
+            with (personComponentView.tag as PeopleComponentHolder) {
                 nameTv.text = contact.name
                 valorTv.text = contact.valorPago
             }
 
-            return personCellView
-        }
-
-        fun writeToParcel(parcel: Parcel, flags: Int) {
-
-        }
-
-        fun describeContents(): Int {
-            return 0
+            return personComponentView
         }
 
         companion object CREATOR : Parcelable.Creator<PersonAdapter> {
