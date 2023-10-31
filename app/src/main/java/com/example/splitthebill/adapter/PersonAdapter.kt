@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.splitthebill.R
 import com.example.splitthebill.databinding.PersonComponentBinding
+import com.example.splitthebill.model.ItemBill
 import com.example.splitthebill.model.Person
 
 class PersonAdapter (
@@ -18,7 +19,7 @@ class PersonAdapter (
         MutableList<Person>
         ): ArrayAdapter<Person>(context, R.layout.person_component, personList) {
 
-        private data class PeopleComponentHolder(val nameTv: TextView, val valorTv: TextView)
+        private data class PeopleComponentHolder(val nameTv: TextView, val valorTv: TextView, val valorCalcAPagarTv: TextView, val comprasTv: TextView)
         private lateinit var pcb: PersonComponentBinding
 
         constructor(parcel: Parcel) : this(
@@ -38,13 +39,29 @@ class PersonAdapter (
                 )
 
                 personComponentView = pcb.root
-                val peopleComponentHolder = PeopleComponentHolder(pcb.nameTv, pcb.valorpagoTv)
+                val peopleComponentHolder = PeopleComponentHolder(pcb.nameTv, pcb.valorPagoTv, pcb.valorCalcAPagarTv, pcb.comprasTv)
                 personComponentView.tag = peopleComponentHolder
             }
 
             with (personComponentView.tag as PeopleComponentHolder) {
+                var comprasTxt = ""
+                if(contact.compra1.name !== ""){
+                    comprasTxt += contact.compra1.name
+                    comprasTxt += ", "
+                }
+                if(contact.compra2.name !== ""){
+                    comprasTxt += contact.compra2.name
+                    comprasTxt += ", "
+                }
+                if(contact.compra3.name !== ""){
+                    comprasTxt += contact.compra3.name
+                    comprasTxt += ", "
+                }
+                
                 nameTv.text = contact.name
-                valorTv.text = contact.valorAPagarAutomatico
+                valorCalcAPagarTv.text = contact.valorAPagarAutomatico
+                valorTv.text = contact.valorPago
+                comprasTv.text = comprasTxt
             }
 
             return personComponentView
