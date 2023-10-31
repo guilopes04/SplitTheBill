@@ -45,19 +45,19 @@ class PersonAdapter (
 
             with (personComponentView.tag as PeopleComponentHolder) {
                 var comprasTxt = ""
-                if(contact.compra1.name !== ""){
+                if(contact.compra1.desc.isNotEmpty()){
                     comprasTxt += contact.compra1.name
                     comprasTxt += ", "
                 }
-                if(contact.compra2.name !== ""){
+                if(contact.compra2.desc.isNotEmpty()){
                     comprasTxt += contact.compra2.name
                     comprasTxt += ", "
                 }
-                if(contact.compra3.name !== ""){
+                if(contact.compra3.desc.isNotEmpty()){
                     comprasTxt += contact.compra3.name
                     comprasTxt += ", "
                 }
-                
+
                 nameTv.text = contact.name
                 valorCalcAPagarTv.text = contact.valorAPagarAutomatico
                 valorTv.text = contact.valorPago

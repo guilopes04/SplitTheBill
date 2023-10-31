@@ -61,10 +61,23 @@ class PersonActivity : AppCompatActivity() {
         }
 
         apb.saveBt.setOnClickListener{
-            var itemValor1 = apb.valorCompra1.text.toString()
-            var itemValor2 = apb.valorCompra2.text.toString()
-            var itemValor3 = apb.valorCompra3.text.toString()
-            var itemsSoma = itemValor1.toDouble() + itemValor2.toDouble() + itemValor3.toDouble()
+            var itemsSoma = 0.0
+            var itemDesc1 = apb.descCompra1.text.toString()
+            var itemValor1 = "0"
+            if(itemDesc1 !== "" || itemDesc1 !== null){
+                itemValor1 = apb.valorCompra1.text.toString()
+            }
+            var itemDesc2 = apb.descCompra2.text.toString()
+            var itemValor2 = "0"
+            if(itemDesc2 !== "" || itemDesc2 !== null){
+                itemValor2 = apb.valorCompra2.text.toString()
+            }
+            var itemDesc3 = apb.descCompra3.text.toString()
+            var itemValor3 = "0"
+            if(itemDesc3 !== "" || itemDesc3 !== null){
+                itemValor2 = apb.valorCompra3.text.toString()
+            }
+            itemsSoma = itemValor1.toDouble() + itemValor2.toDouble() + itemValor3.toDouble()
             diferenca(itemsSoma, valorFixo)
 
             var compra1 = ItemBill(
