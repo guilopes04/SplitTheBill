@@ -8,7 +8,9 @@ data class Person(
     val id: Int,
     var name: String,
     var valorPago: String,
-    var compras: String,
+    var compra1: ItemBill,
+    var compra2: ItemBill,
+    var compra3: ItemBill,
     var valorAPagarAutomatico: String,
     var valorAPagarFixo: String
 ): Parcelable

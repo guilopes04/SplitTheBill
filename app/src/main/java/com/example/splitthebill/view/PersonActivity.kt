@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.splitthebill.databinding.PersonBillDetailBinding
 import com.example.splitthebill.model.ConstantTypes
+import com.example.splitthebill.model.ItemBill
 import com.example.splitthebill.model.Person
 import kotlin.random.Random
 
@@ -27,8 +28,15 @@ class PersonActivity : AppCompatActivity() {
             with(apb) {
                 with(_receivedInfo){
                     nameEt.setText(name)
-                    valorPagoEt.setText(valorPago)
-                    comprasEt.setText(compras)
+                    nameCompra1.setText(compra1.name)
+                    descCompra1.setText(compra1.desc)
+                    valorCompra1.setText(compra1.value)
+                    nameCompra2.setText(compra2.name)
+                    descCompra2.setText(compra2.desc)
+                    valorCompra2.setText(compra2.value)
+                    nameCompra3.setText(compra3.name)
+                    descCompra3.setText(compra3.desc)
+                    valorCompra3.setText(compra3.value)
                     dividaEt.setText(valorAPagarAutomatico)
                 }
             }
@@ -39,20 +47,51 @@ class PersonActivity : AppCompatActivity() {
         if (viewPerson) {
             with(apb){
                 nameEt.isEnabled = false
-                valorPagoEt.isEnabled = false
-                comprasEt.isEnabled = false
+                nameCompra1.isEnabled = false
+                descCompra1.isEnabled = false
+                valorCompra1.isEnabled = false
+                nameCompra2.isEnabled = false
+                descCompra2.isEnabled = false
+                valorCompra2.isEnabled = false
+                nameCompra3.isEnabled = false
+                descCompra3.isEnabled = false
+                valorCompra3.isEnabled = false
                 saveBt.visibility = View.GONE
             }
         }
 
         apb.saveBt.setOnClickListener{
+            var itemValor1 = apb.valorCompra1.text.toString()
+            var itemValor2 = apb.valorCompra2.text.toString()
+            var itemValor3 = apb.valorCompra3.text.toString()
+            var itemsSoma = itemValor1.toDouble() + itemValor2.toDouble() + itemValor3.toDouble()
+            diferenca(itemsSoma, valorFixo)
 
-            diferenca((apb.valorPagoEt.text.toString()).toDouble(), valorFixo)
+            var compra1 = ItemBill(
+                name = apb.nameCompra1.text.toString(),
+                desc = apb.descCompra1.text.toString(),
+                value = itemValor1
+            )
+
+            var compra2 = ItemBill(
+                name = apb.nameCompra2.text.toString(),
+                desc = apb.descCompra2.text.toString(),
+                value = itemValor2
+            )
+
+            var compra3 = ItemBill(
+                name = apb.nameCompra3.text.toString(),
+                desc = apb.descCompra3.text.toString(),
+                value = itemValor3
+            )
+
             val person = Person(
                 id = receivedInfo?.id?: Random(System.currentTimeMillis()).nextInt(),
                 name = apb.nameEt.text.toString(),
-                valorPago = apb.valorPagoEt.text.toString(),
-                compras = apb.comprasEt.text.toString(),
+                valorPago = itemsSoma.toString(),
+                compra1 = compra1,
+                compra2 = compra2,
+                compra3 = compra3,
                 valorAPagarAutomatico = valorAPagarAtualizado.toString(),
                 valorAPagarFixo = valorFixo.toString()
             )

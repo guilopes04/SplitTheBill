@@ -17,6 +17,7 @@ import com.example.splitthebill.databinding.ListParticipantsBinding
 import com.example.splitthebill.model.Bill
 import com.example.splitthebill.model.ConstantTypes
 import com.example.splitthebill.model.ConstantTypes.BILL_PEOPLE
+import com.example.splitthebill.model.ItemBill
 import com.example.splitthebill.model.Person
 
 class ListParticipants : AppCompatActivity() {
@@ -141,13 +142,20 @@ class ListParticipants : AppCompatActivity() {
     }
 
     private fun fillContactList() {
+        var blankCompra = ItemBill(
+            name = "",
+            desc = "",
+            value = ""
+        )
         for (i in 1 ..quantidadePessoas.toInt()){
             personList.add(
                 Person(
                     id = i,
                     name = "$i",
                     valorPago = "0.00",
-                    compras = "",
+                    compra1 = blankCompra,
+                    compra2 = blankCompra,
+                    compra3 = blankCompra,
                     valorAPagarAutomatico = "$valorPorPessoa",
                     valorAPagarFixo = "$valorPorPessoa",
                 )
